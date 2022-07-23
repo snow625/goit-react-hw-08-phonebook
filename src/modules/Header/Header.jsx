@@ -1,43 +1,30 @@
 import { NavLink } from "react-router-dom";
+import useIsLogin from "../../shared/hooks/useisLogin";
+import UserMenu from "./UserMenu";
+import LoginRegister from "./LoginRegister";
 
 import s from "./header.module.css";
 const Header = () => {
+  const isLogin = useIsLogin();
+
+  const styleForNavLinks = ({ isActive }) => {
+    return isActive ? s.activeLink : s.link;
+  };
+
   return (
     <header className={s.header}>
       <div className="container">
         <nav className={s.nav}>
-          <NavLink
-            to={"/"}
-            className={({ isActive }) =>
-              isActive ? `${s.activeLink}` : `${s.link}`
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to={"/contacts"}
-            className={({ isActive }) =>
-              isActive ? `${s.activeLink}` : `${s.link}`
-            }
-          >
-            Contacts
-          </NavLink>
-          <NavLink
-            to={"/login"}
-            className={({ isActive }) =>
-              isActive ? `${s.activeLink}` : `${s.link}`
-            }
-          >
-            Login
-          </NavLink>
-          <NavLink
-            to={"/register"}
-            className={({ isActive }) =>
-              isActive ? `${s.activeLink}` : `${s.link}`
-            }
-          >
-            Register
-          </NavLink>
+          {isLogin ? (
+            <NavLink to={"/contacts"} className={styleForNavLinks}>
+              Contacts
+            </NavLink>
+          ) : (
+            <NavLink to={"/"} className={styleForNavLinks}>
+              Home
+            </NavLink>
+          )}
+          {isLogin ? <UserMenu /> : <LoginRegister />}
         </nav>
       </div>
     </header>

@@ -12,7 +12,7 @@ const panding = (store) => ({
 const rejected = (store, { payload }) => ({
   ...store,
   loading: false,
-  error: payload,
+  error: payload.message,
 });
 
 const contactsSlice = createSlice({
@@ -26,6 +26,7 @@ const contactsSlice = createSlice({
       loading: false,
       items: payload,
     }),
+
     [addContact.pending]: panding,
     [addContact.rejected]: rejected,
     [addContact.fulfilled]: (store, { payload }) => ({
@@ -33,12 +34,13 @@ const contactsSlice = createSlice({
       loading: false,
       items: [...store.items, payload],
     }),
+
     [removeContact.pending]: panding,
     [removeContact.rejected]: rejected,
     [removeContact.fulfilled]: (store, { payload }) => ({
       ...store,
       loading: false,
-      items: store.items.filter((el) => el.id !== payload.id),
+      items: store.items.filter((el) => el.id !== payload),
     }),
   },
 });

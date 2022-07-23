@@ -9,9 +9,9 @@ import {
 import { getContacts } from "../../redux/contacts/contacts-selector";
 import { useDispatch } from "react-redux";
 
-import Contacts from "../../components/Contacts";
-import ContactForm from "../../components/ContactForm";
-import Filter from "../../components/Filter";
+import Contacts from "./Contacts";
+import ContactForm from "./ContactForm";
+import Filter from "./Filter";
 
 import s from "./phoneBook.module.css";
 

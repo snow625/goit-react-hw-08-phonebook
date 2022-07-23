@@ -1,6 +1,6 @@
 import { memo } from "react";
 import PropTypes from "prop-types";
-import Button from "../../../shared/components/Button";
+import Button from "../../../../shared/components/Button";
 import s from "./contactItem.module.css";
 function ContactItem(props) {
   const { number, name, onClick, id } = props;

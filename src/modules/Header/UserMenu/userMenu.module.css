@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  color: rgb(78, 70, 70);
+}
+
+.email {
+  font-size: 14px;
+}
+.button {
+  color: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: transparent;
+  border-color: transparent;
+  height: 25px;
+}
+
+.button:hover,
+:focus {
+  color: rgb(245, 222, 179);
+  background-color: transparent;
+  outline: 2px solid rgb(100, 92, 92);
+}
