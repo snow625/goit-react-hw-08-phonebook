@@ -1,13 +1,28 @@
 import { memo } from "react";
 import PropTypes from "prop-types";
 import Button from "../../../../shared/components/Button";
+import sprite from "../../../../images/svg/sprite.svg";
 import s from "./contactItem.module.css";
 function ContactItem(props) {
   const { number, name, onClick, id } = props;
 
   return (
     <li className={s.item}>
-      <p>{`${name}: ${number}`}</p>
+      <a className={s.link} href={`tel:${number}`}>
+        <div className={s.wrapper}>
+          <svg className={s.icon}>
+            <use href={sprite + "#icon-user"} />
+          </svg>
+          <p className={s.name}>{name}</p>
+        </div>
+        <div className={s.wrapper}>
+          <svg className={s.icon}>
+            <use href={sprite + "#icon-phone"} />
+          </svg>
+          <p className={s.number}>{number}</p>
+        </div>
+      </a>
+
       <Button
         text="Detele"
         type="button"

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import useForm from "../../shared/hooks/useForm";
 
 import { initialState } from "./initialState";
@@ -25,4 +26,13 @@ const LoginForm = ({ onSubmit }) => {
     </form>
   );
 };
+
+LoginForm.defaultProps = {
+  onSubmit: () => {},
+};
+
+LoginForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
 export default LoginForm;

@@ -6,13 +6,15 @@
 
 .input {
   margin-top: 5px;
-  border: 2px solid grey;
+
   border-radius: 5px;
   outline: transparent;
+  border: 2px solid grey;
   padding: 5px;
   width: 170px;
+  color: black;
 }
 
 .input:focus {
-  border: 2px solid blue;
+  border: 2px solid wheat;
 }

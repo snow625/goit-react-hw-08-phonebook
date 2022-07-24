@@ -27,6 +27,9 @@ const ContactForm = ({ onSubmit }) => {
   );
 };
 
+ContactForm.defaultProps = {
+  onSubmit: () => {},
+};
 ContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };

@@ -1,5 +1,6 @@
 import useForm from "../../shared/hooks/useForm";
 import { Navigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { initialState } from "./initialState";
 import { fields } from "./fields";
@@ -35,4 +36,13 @@ const RegisterForm = ({ onSubmit }) => {
     </form>
   );
 };
+
+RegisterForm.defaultProps = {
+  onSubmit: () => {},
+};
+
+RegisterForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
 export default RegisterForm;

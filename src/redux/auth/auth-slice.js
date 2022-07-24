@@ -56,12 +56,23 @@ const authSlice = createSlice({
 
     [getCurrentUser.pending]: panding,
     [getCurrentUser.rejected]: () => initialState,
-    [getCurrentUser.fulfilled]:(store, { payload }) => ({
+    [getCurrentUser.fulfilled]: (store, { payload }) => {
+      if (payload.token) {
+        return {
+          ...store,
+          loading: false,
+          isLogin: true,
+          user: payload.user,
+          token: payload.token
+        };
+      }
+      return {
         ...store,
         loading: false,
         isLogin: true,
         user: payload,
-      }),
+      };
+    },
   },
 });
 

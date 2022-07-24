@@ -15,6 +15,7 @@ const TextField = (props) => {
     pattern,
     title,
   } = props;
+
   const id = useMemo(() => nanoid(), []);
 
   return (
@@ -47,13 +48,15 @@ TextField.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
   required: PropTypes.bool.isRequired,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
     PropTypes.bool,
-  ]),
+  ]).isRequired,
+  placeholder: PropTypes.string,
+  pattern: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default TextField;
